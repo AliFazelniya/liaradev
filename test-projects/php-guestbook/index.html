@@ -1,0 +1,11 @@
+<!doctype html>
+<html><body>
+<h1>Guestbook</h1>
+<ul id="list"></ul>
+<script>
+  // the page needs the PHP script: on a static platform this request returns raw PHP source
+  fetch("api.php").then((r) => r.json()).then((rows) => {
+    document.getElementById("list").innerHTML = rows.map((r) => `<li>${r.name}: ${r.message}</li>`).join("");
+  }).catch((e) => { document.getElementById("list").textContent = "backend not running: " + e.message; });
+</script>
+</body></html>

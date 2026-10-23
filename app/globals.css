@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+/* Tokens taken from the Liara console bundle (console.liara.ir): dark theme, mint #87fcc4 -> cyan #28c1f5 gradient. */
+:root {
+  --bg: #181818;
+  --card: #23252d;
+  --card-2: #2a2c36;
+  --surface: #15161c;
+  --border: #ffffff1a;
+  --text: #ffffff;
+  --muted: #cccccc99;
+  --primary: #87fcc4;
+  --primary-dark: #28c1f5;
+  --primary-soft: #87fcc41f;
+  --grad: linear-gradient(92deg, #87fcc4 0%, #28c1f5 98.77%);
+  --ok: #87fcc4;
+  --ok-soft: #87fcc41f;
+  --warn: #ffc44e;
+  --warn-soft: #ffc44e22;
+  --bad: #ff706f;
+  --bad-soft: #e5373522;
+  --side: #1f2027;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-card: var(--card);
+  --color-line: var(--border);
+  --color-ink: var(--text);
+  --color-muted: var(--muted);
+  --color-brand: var(--primary);
+  --color-brand-dark: var(--primary-dark);
+  --color-brand-soft: var(--primary-soft);
+  --color-ok: var(--ok);
+  --color-ok-soft: var(--ok-soft);
+  --color-warn: var(--warn);
+  --color-warn-soft: var(--warn-soft);
+  --color-bad: var(--bad);
+  --color-bad-soft: var(--bad-soft);
+  --color-side: var(--side);
+  --font-sans: var(--font-yekan), system-ui, sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-yekan), system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: inherit;
+  border: 1px solid var(--border);
+  background: #ffffff0d;
+  color: var(--text);
+  cursor: pointer;
+  transition: background 0.15s, filter 0.15s;
+}
+.btn:hover { background: #ffffff1a; }
+.btn:disabled { opacity: 0.45; cursor: not-allowed; }
+.btn-primary { background: var(--grad); color: #0b1f17; border: none; }
+.btn-primary:hover { background: var(--grad); filter: brightness(1.08); }
+.btn-danger { background: #e53735; color: #fff; border-color: #e53735; }
+.btn-danger:hover { background: #e53735; filter: brightness(1.1); }
+
+.pill { display: inline-block; padding: 2px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; }
+.pill-ok { background: var(--ok-soft); color: var(--ok); }
+.pill-warn { background: var(--warn-soft); color: var(--warn); }
+.pill-bad { background: var(--bad-soft); color: var(--bad); }
+.pill-muted { background: #ffffff14; color: #ccc; }
+
+.input {
+  width: 100%;
+  padding: 9px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 15px;
+  font-family: inherit;
+}
+.input:focus { outline: 1px solid var(--primary); outline-offset: -1px; }
+select.input option { background: var(--surface); }
+
+.ltr { direction: ltr; unicode-bidi: plaintext; text-align: left; }
+.grad-text { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+a { color: inherit; }
+::selection { background: #87fcc455; }
