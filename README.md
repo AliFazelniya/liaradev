@@ -74,7 +74,7 @@ Base `https://api.iran.liara.ir`, `Authorization: Bearer <token>`, `?teamID=` fo
 
 ## Try it
 
-`test-projects/` has ready zips with the edge cases the AI handles: missing env variable, wrong port, memory pressure (plan change), memory leak (needs a code change), dependency and syntax errors, PHP on the wrong platform, a missing `requirements.txt`, and a full-stack app with a database. See [test-projects/README.md](test-projects/README.md). A suggested demo flow is in [docs/DEMO-SCRIPT.md](docs/DEMO-SCRIPT.md).
+`test-projects/` has ready zips with the edge cases the AI handles: wrong port, memory pressure (plan change), a CPU-bound app, and a full-stack app with a database; more cases (missing env variable, memory leak, dependency and syntax errors, PHP on the wrong platform, missing `requirements.txt`) are in `test-projects/archive/`.
 
 ## Deploy on Liara
 
