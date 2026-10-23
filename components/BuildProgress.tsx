@@ -60,7 +60,7 @@ export default function BuildProgress({ releaseID, project, onDone }: { releaseI
               <span className={`pill ${done ? "pill-ok" : cur ? "pill-warn" : a.phase === "failed" && i === 1 ? "pill-bad" : "pill-muted"}`}>
                 {done ? "✓ " : cur ? "● " : ""}{p.label}
               </span>
-              {i < PHASES.length - 1 && <span className="text-muted">›</span>}
+              {i < PHASES.length - 1 && <span className="text-muted">/</span>}
             </div>
           );
         })}

@@ -124,9 +124,9 @@ function UsageTab() {
             <div className="flex items-center justify-between gap-3 flex-wrap pt-3 border-t border-line text-sm">
               <span className="text-muted">{num(data.recentTotal)} فراخوانی</span>
               <div className="flex items-center gap-2">
-                <button className="btn !py-1" disabled={page >= pages} onClick={() => setPage(page + 1)}>‹ قدیمی‌تر</button>
+                <button className="btn !py-1" disabled={page >= pages} onClick={() => setPage(page + 1)}>قدیمی‌تر</button>
                 <span className="px-2">صفحه {num(page)} از {num(pages)}</span>
-                <button className="btn !py-1" disabled={page <= 1} onClick={() => setPage(page - 1)}>جدیدتر ›</button>
+                <button className="btn !py-1" disabled={page <= 1} onClick={() => setPage(page - 1)}>جدیدتر</button>
               </div>
               <label className="flex items-center gap-2 text-muted">تعداد در صفحه
                 <select className="input !w-20 !py-1" value={size} onChange={(e) => { setSize(+e.target.value); setPage(1); }}>{[10, 15, 25, 50].map((n) => <option key={n} value={n}>{num(n)}</option>)}</select>

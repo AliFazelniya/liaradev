@@ -243,7 +243,7 @@ export default function NewApp() {
   const finished = created && !busy && allOk && (!releaseID || buildOk !== null);
   const isLast = key === "review";
   const editingFromSummary = custom && !!ai && !isLast && key !== "level" && key !== "project"; // edits made from the AI summary go straight back to it
-  const nextLabel = editingFromSummary ? "ثبت و بازگشت به خلاصه" : isLast ? (file ? "ایجاد و دیپلوی برنامه" : "ایجاد برنامه") : key === "project" ? "بررسی و پیشنهاد" : "بعدی ‹";
+  const nextLabel = editingFromSummary ? "ثبت و بازگشت به خلاصه" : isLast ? (file ? "ایجاد و دیپلوی برنامه" : "ایجاد برنامه") : key === "project" ? "بررسی و پیشنهاد" : "بعدی";
 
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto text-ink" style={{ background: "radial-gradient(ellipse at 50% -10%, #2a2c36 0%, #181818 60%)" }}>
@@ -458,11 +458,11 @@ export default function NewApp() {
         {/* bottom bar (console order: next on the left, previous on the right) */}
         {!created && !(key === "project" && report?.stack && !single) && (
           <div className="border-t border-line pt-4 flex items-center justify-between sticky bottom-0 bg-[#181818]/90 backdrop-blur pb-2">
-            <button className="text-[#ccc] disabled:opacity-30 flex items-center gap-1" disabled={step === 0} onClick={() => setStep(step - 1)}>› قبلی</button>
+            <button className="text-[#ccc] disabled:opacity-30 flex items-center gap-1" disabled={step === 0} onClick={() => setStep(step - 1)}><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M9 6l6 6-6 6" /></svg>قبلی</button>
             <span className="text-sm text-muted">مرحله‌ی {(step + 1).toLocaleString("fa-IR")} از {keys.length.toLocaleString("fa-IR")}</span>
             <button className="btn btn-primary px-8 py-3 rounded-xl min-w-[170px] justify-center" disabled={!canNext() || busy}
               onClick={() => (editingFromSummary ? setStep(keys.length - 1) : isLast ? launch() : key === "project" && !(custom && ai) ? planForBeginner() : setStep(step + 1))}>
-              {busy && key === "project" ? "در حال بررسی…" : nextLabel}
+              {busy && key === "project" ? "در حال بررسی…" : nextLabel}{!editingFromSummary && !isLast && !(busy && key === "project") && <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden className="mr-1"><path d="M15 6l-6 6 6 6" /></svg>}
             </button>
           </div>
         )}

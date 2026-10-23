@@ -160,7 +160,7 @@ export default function StackBuilder({ file, stack, defaultBase, single, setSing
           {job.done && job.ok && (
             <div className="pt-2 space-y-2">
               <div className="text-ok text-sm">همه‌ی بخش‌ها ساخته و استقرار آن‌ها شروع شد. بررسی اولیه‌ی هوش مصنوعی پس از پایان ساخت خودکار انجام می‌شود.</div>
-              <div className="flex gap-2 flex-wrap">{job.apps.map((a: any) => <Link key={a.id} href={`/apps/${a.name}`} className="btn">{a.name} ‹</Link>)}</div>
+              <div className="flex gap-2 flex-wrap">{job.apps.map((a: any) => <Link key={a.id} href={`/apps/${a.name}`} className="btn">{a.name}</Link>)}</div>
             </div>
           )}
         </div>
